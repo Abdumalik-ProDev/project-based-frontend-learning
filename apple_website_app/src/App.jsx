@@ -1,35 +1,18 @@
-import NavBar from "./components/NavBar"
-import { navLinks } from "./constants"
+import NavBar from "./components/NavBar.jsx"
+import ProductViewer from "./components/ProductViewer.jsx"
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger)
 
 const App = () => {
   return (
-    <header>
-      <nav>
-        <img src="/logo.svg" alt="Apple Logo" />
-
-        <ul>
-          {navLinks.map(({ label }) => (
-            <li key={ label }>
-              <a href={ label }>{ label }</a>
-            </li>
-          ))
-          }
-        </ul>
-
-        <div className="flex-center gap-3">
-
-          <button>
-            <img src="/search.svg" alt="Search" />
-          </button>
-
-          <button>
-            <img src="/cart.svg" alt="Cart" />
-          </button>
-
-        </div>
-
-      </nav>
-    </header>
+    <main>
+      <NavBar />
+      <Hero />
+      <ProductViewer />
+      
+    </main>
   )
 } 
 
