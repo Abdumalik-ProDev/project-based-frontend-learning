@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef} from "react";
 import {PresentationControls} from "@react-three/drei";
 import gsap from 'gsap';
 
@@ -13,9 +13,6 @@ const fadeMeshes = (group, opacity) => {
 
     group.traverse((child) => {
         if(child.isMesh) {
-            if (child.material.transparent === false) {
-                child.material = child.material.clone();
-            }
             child.material.transparent = true;
             gsap.to(child.material, { opacity, duration: ANIMATION_DURATION })
         }
@@ -35,7 +32,7 @@ const ModelSwitcher = ({ scale, isMobile }) => {
     const smallMacbookRef = useRef();
     const largeMacbookRef = useRef();
 
-    const showLargeMacbook = scale == SCALE_LARGE_DESKTOP || scale == SCALE_LARGE_MOBILE;
+    const showLargeMacbook = scale === SCALE_LARGE_DESKTOP || scale === SCALE_LARGE_MOBILE;
 
     useGSAP(() => {
         if(showLargeMacbook) {
